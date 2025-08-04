@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Selector</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --border-color: #ddd;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .select-container {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: white;
+            font-size: 16px;
+            color: var(--text-color);
+            transition: var(--transition);
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        select:disabled {
+            background-color: var(--light-gray);
+            color: #888;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: var(--light-gray);
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Location Selector</h1>
+        
+        <div class="select-container">
+            <label for="country">Country:</label>
+            <select id="country">
+                <option value="">Select a country</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="USA">United States</option>
+                <option value="UK">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="Germany">Germany</option>
+                <option value="Australia">Australia</option>
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+                <option value="France">France</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Russia">Russia</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Argentina">Argentina</option>
+            </select>
+        </div>
+      
+        <div class="select-container">
+            <label for="state">State/Region:</label>
+            <select id="state" >
+                <option value="">Please select a country first</option>
+                <option value="Egypt">Egypt </option>
+            <option value="Imostate">Imo state</option>
+            <option value="California">California</option>
+            <option value="England">England</option>
+            <option value="Ontario">Ontaria</option>
+            <option value="Bavaria">Bavaria</option>
+            <option value="New South Wales">New South Wales</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Guangdong">Guangdong</option>
+            <option value="Tokyo (metropolitan prefecture)">Tokyo (metropolitan prefecture)</option>
+            <option value="	Île-de-France">	Île-de-France</option>
+            <option value="São Paulo">São Paulo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Moscow Oblast">Moscow Oblast</option>
+            <option value="Cairo Governorate">Cairo Governorate</option>
+           	<option value="Australia">Australia</option> 
+           	<option value=" Japan"> Japan</option>
+            </select>
+        </div>
+        
+        <div class="select-container">
+            <label for="lga">Local Government Area:</label>
+            <select id="lga" >
+                <option value="">Please select a state first</option>
+                 <option value="OweeriNorth">Oweeri North</option>
+            <option value="Los Angeles County">Los Angeles County</option>
+            <option value="Manchester City Council">Manchester City Council</option>
+            <option value="Toronto (City of Toronto)">Toronto (City of Toronto)</option>
+            <option value="Munich (Landkreis München)">Munich (Landkreis München)</option>
+            <option value="City of Sydney Council">City of Sydney Council</option>
+            <option value="Pune District">Pune District</option>
+            <option value="Guangzhou City (Yuexiu District)">Guangzhou City (Yuexiu District)</option>
+            <option value="Shinjuku Ward (Tokyo Metropolis)">Shinjuku Ward (Tokyo Metropolis)</option>
+            <option value="">Select an LGA</option>
+            <option value="Paris (1st Arrondissement)">Paris (1st Arrondissement)</option>
+            <option value="São Paulo (Subprefeitura of Sé)">São Paulo (Subprefeitura of Sé)</option>
+            <option value="Guadalajara Municipality">Guadalajara Municipality</option>
+            <option value="Khimki Urban District">Khimki Urban District</option>
+            <option value="Nasr City">Nasr City</option>
+            <option value="Sidi Bernoussi District">Sidi Bernoussi District</option>
+            <option value="Kumasi Metropolitan Assembly">Kumasi Metropolitan Assembly</option>
+            <option value="La Plata Partido">La Plata Partido</option>
+            </select>
+        </div>
+        
+        <div class="btn-container">
+            <button id="submit-btn">Submit</button>
+        </div>
+        
+        <div class="result" id="result">
+            <p id="result-text"></p>
+        </div>
+    </div>
+
+
+ 
+        <script>
+        	// Function to handle the submit button click
+function handleSubmit() {
+    // Get form elements
+    const countrySelect = document.getElementById('country');
+    const stateSelect = document.getElementById('state');
+    const lgaSelect = document.getElementById('lga');
+    const resultDiv = document.getElementById('result');
+    const resultText = document.getElementById('result-text');
+    
+    // Get selected values
+    const country = countrySelect.value;
+    const state = stateSelect.value;
+    const lga = lgaSelect.value;
+    
+    // Validate selections
+    if (!country) {
+        showError("Please select a country");
+        return;
+    }
+    
+    if (!state) {
+        showError("Please select a state/region");
+        return;
+    }
+    
+    if (!lga) {
+        showError("Please select a local government area");
+        return;
+    }
+    
+    // If all validations pass, show success message
+    showSuccess(`Location selected: ${lga}, ${state}, ${country}`);
+    
+    // Here you could add additional functionality like:
+    // - Sending data to a server
+    // - Redirecting to another page
+    // - Processing the selection further
+}
+
+// Helper function to show error messages
+function showError(message) {
+    const resultDiv = document.getElementById('result');
+    const resultText = document.getElementById('result-text');
+    
+    resultDiv.style.backgroundColor = '#ffebee';
+    resultText.style.color = '#c62828';
+    resultText.textContent = message;
+    resultDiv.classList.add('show');
+    
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        resultDiv.classList.remove('show');
+    }, 3000);
+}
+
+// Helper function to show success messages
+function showSuccess(message) {
+    const resultDiv = document.getElementById('result');
+    const resultText = document.getElementById('result-text');
+    
+    resultDiv.style.backgroundColor = '#e8f5e9';
+    resultText.style.color = '#2e7d32';
+    resultText.textContent = message;
+    resultDiv.classList.add('show');
+    
+    // You might want to keep success messages visible longer or until dismissed
+}
+
+// Add event listener to the button
+document.getElementById('submit-btn').addEventListener('click', handleSubmit);
+        </script>
+            
+ </body>          
+</html>
