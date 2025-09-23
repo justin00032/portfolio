@@ -461,16 +461,17 @@
             transform: scale(1.2);
         }
 
-        /* Projects Section */
+        /* Projects Section - Updated to Flex Layout */
         .projects {
-            background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+       background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
         }
 
         .projects-container {
             display: flex;
-            max-width:100%;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+            justify-content:center;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
         }
 
         .project-card {
@@ -481,6 +482,9 @@
             transition: var(--transition);
             position: relative;
             backdrop-filter: blur(10px);
+            width: 350px;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::before {
@@ -506,8 +510,9 @@
         }
 
         .project-img {
-            height: 250px;
+            height: 220px;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
         .project-img img {
@@ -522,9 +527,12 @@
         }
 
         .project-info {
-            padding: 2rem;
+            padding: 1.8rem;
             position: relative;
             z-index: 2;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-info h3 {
@@ -537,6 +545,7 @@
             margin-bottom: 1.8rem;
             color: var(--gray);
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .project-links {
@@ -560,12 +569,14 @@
             flex-direction: column;
             gap: 2.5rem;
             margin-bottom: 3rem;
+            
+            
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: row;
+            align-items:flex;
             gap: 1.5rem;
             transition: var(--transition);
         }
@@ -665,8 +676,8 @@
         }
 
         .copyright {
-            margin-top: 2.5rem;
-            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1.rem;
+            color: rgb(255, 255, 255);
             font-size: 1rem;
             text-align: center;
         }
@@ -722,6 +733,12 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .projects-container {
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero-content, .about-content {
                 flex-direction: column;
@@ -777,9 +794,19 @@
                 flex-direction: column;
             }
 
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
             .contact-item {
                 flex-direction: column;
                 text-align: center;
+                align-items: center;
+            }
+
+            .project-card {
+                width: 100%;
+                max-width: 400px;
             }
         }
     </style>
@@ -791,7 +818,7 @@
             <nav>
                 <a href="#" class="logo">
                     <!-- Replace with your photo -->
-                    <img src="port.jpg" alt="Justin" class="logo-img">
+                    <img src="image.png" alt="Justin" class="logo-img">
                     <span>Justin Chinaemerem</span>
                 </a>
                 <div class="nav-links">
@@ -822,7 +849,7 @@
                 </div>
                 <div class="hero-image">
                     <!-- Replace with your professional photo -->
-                    <img src="port.jpg" alt="Justin Chinaemerem" class="profile-img">
+                    <img src="image.png" alt="Justin Chinaemerem" class="profile-img">
                 </div>
             </div>
         </div>
@@ -835,7 +862,7 @@
             <div class="about-content">
                 <div class="about-img">
                     <!-- Another photo option (can be same as profile image) -->
-                    <img src="image/port.jpg" alt="Justin working">
+                    <img src="image.png" alt="Justin working">
                 </div>
                 <div class="about-text">
                     <h3>Web & Mobile App Developer</h3>
@@ -901,42 +928,43 @@
                 <div class="project-card">
                     <div class="project-img">
                         <!-- Replace with your project screenshot -->
-                        <img src="cal.PNG" alt="calculator">
+                        <img src="Cal.PNG" alt="E-commerce Website">
                     </div>
-                    <div class="project-info" >
-                        <h3>A simple calculator project </h3>
-                        <p>This responsive and modren calculator project built with HTML, Css, and javascript  </p>
+                    <div class="project-info">
+                        <h3>A calculator project</h3>
+                        <p>This modern and simple calculator project built with HTML, Css and Javascript</p>
                         <div class="project-links">
                             <a href="https://github.com/justin00032/calculator" class="btn" target="_blank">View on GitHub</a>
-                            <a href="http://127.0.0.1:3000/calculator.html" class="btn btn-outline" target="_blank">View Live</a>
+                            <a href="http://127.0.0.1:3000/calculator.html " class="btn" target="_blank">Live Demo</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-img">
                         <!-- Replace with your project screenshot -->
-                        <img src="quiz.png" alt="quiz site">
+                        <img src="quiz.png" alt="Task Manager App">
+                      
                     </div>
                     <div class="project-info">
-                        <h3>a quiz site </h3>
-                        <p>This resposive  and  modern quiz site built with HTML , Css, and Javascript  </p>
+                        <h3>quiz site</h3>
+                        <p>This modern quiz site built with HTML, Css and Javascript use for school exam quiz </p>
                         <div class="project-links">
-                            <a href="https://github.com/justin00032/quiz " class="btn" target="_blank">View on GitHub</a>
-                            <a href="http://127.0.0.1:3002/quiz.html" target="_blank">View Live</a>
+                            <a href="https://github.com/justin00032/quiz" class="btn" target="_blank">View on GitHub</a>
+                              <a href= "http://127.0.0.1:3000/quiz.html" class="btn" target="_blank">Live Demo</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-img">
                         <!-- Replace with your project screenshot -->
-                        <img src="no.PNG " alt="">
+                        <img src="no.PNG" alt="Portfolio Website">
                     </div>
                     <div class="project-info">
-                        <h3> Note app </h3>
-                        <p>This resposive and modern not-app built with HTML, Css, and Javascript use to store any of your informations and data </p>
+                        <h3>Not app</h3>
+                        <p>This resposive and modern not-app built with HTML, Css, and Javascript use to store any of your informations and data</p>
                         <div class="project-links">
-                            <a href="https://github.com/justin00032/note-app" class="btn" target="_blank">View on GitHub</a>
-                            <a href="http://127.0.0.1:3002/Note%20app/note-app.html" class="btn btn-outline" target="_blank">View Live</a>
+                            <a href="https://github.com/justin00032/portfolio" class="btn" target="_blank">View on GitHub</a>
+                              <a href= "http://127.0.0.1:3000/note-app.html" class="btn" target="_blank">Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -1004,7 +1032,7 @@
         <div class="container">
             <div class="footer-content">
                 <a href="#" class="logo">
-                    <img src="port.png" alt="Justin" class="logo-img">
+                    <img src="image.png" alt="Justin" class="logo-img">
                     <span>Justin Chinaemerem</span>
                 </a>
                 <div class="social-links">
@@ -1014,8 +1042,7 @@
                     <a href="https://wa.me/2348107091905" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <p class="copyright">© 2025 Justin Chinaemerem. All rights reserved.</p>
-                <p class="design-credit" style="color: #b3b3b3; font-size: 0.95rem; margin-top: 0.5rem;">
-                Portfolio designed @2025 by Justin Chinaemerem</p>
+                <p  text-color: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);>Portfolio designe @ 2025 by justin chinaemerem </p>
             </div>
         </div>
     </footer>
